@@ -21,7 +21,7 @@ const getAllPosts = () => {
 
 useEffect(() => {
   getAllPosts()
-}, [posts])
+}, [])
 
   return (
     <>
