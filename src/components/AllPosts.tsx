@@ -33,8 +33,8 @@ export const AllPosts: VFC = memo(() => {
       </Box>
       <Wrap p={{ base: 4, md: 10}}>
         {posts?.map((post) => (
-          <WrapItem key={post.id} mx="auto" >
-            <PostCard postTitle={post.title} postContent={post.content} postCreatedAt={post.created_at} />
+          <WrapItem key={post.id}>
+            <PostCard id={post.id} postTitle={post.title} postContent={post.content} postCreatedAt={post.created_at} getAllPosts={getAllPosts} />
           </WrapItem>
         ))}
       </Wrap>
