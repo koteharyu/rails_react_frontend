@@ -1,7 +1,6 @@
-import { memo, useState, VFC } from "react";
+import { memo, VFC } from "react";
 import { Box, Image, Badge, Button, Flex } from '@chakra-ui/react'
 import axios from 'axios'
-import { useHistory } from "react-router-dom";
 
 type Props = {
   postTitle: string
@@ -11,21 +10,9 @@ type Props = {
   getAllPosts: () => void
 }
 
-type Post = {
-  id: number
-  title: string
-  content: string
-  create_at: string
-  updated_at: string
-}
-
 export const PostCard: VFC<Props> = memo((props) => {
 
   const { postTitle, postContent, postCreatedAt, id, getAllPosts } = props
-
-  const history = useHistory()
-
-  const [posts, setPosts] = useState<Post[] | null>(null)
 
   const editPost = () => {
     alert("edit post")
@@ -35,7 +22,7 @@ export const PostCard: VFC<Props> = memo((props) => {
     const sure = window.confirm("are you sure?")
     if (sure) {
       axios.delete(`http://localhost:3001/posts/${id}`)
-      .then( res => {
+      .then( () => {
         getAllPosts()
       })
       .catch(e => console.error(e))
