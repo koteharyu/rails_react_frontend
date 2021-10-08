@@ -11,7 +11,7 @@ export const Header: VFC = memo(() => {
 
   return (
     <>
-      <Flex bg="cyan.300" justify="space-between" alignItems="center">
+      <Flex bg="cyan.300" justify="space-between" alignItems="center" p={4}>
         <Flex as="a">
           <Heading as="h1" onClick={goToTop} _hover={{ cursor: "pointer " }} >BASIC CRUD</Heading>
         </Flex>
