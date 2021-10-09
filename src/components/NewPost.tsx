@@ -1,5 +1,5 @@
 import { Heading, FormControl, FormLabel, Input, Box, Button, Stack } from "@chakra-ui/react";
-import React, { ChangeEvent, memo, useState, VFC, } from "react";
+import { ChangeEvent, memo, useState, VFC, } from "react";
 import { useHistory } from "react-router-dom";
 import axios from 'axios'
 
@@ -7,7 +7,7 @@ export const NewPost: VFC = memo(() => {
 
   const [newPostTitle, setNewPostTitle] = useState("")
   const [newPostContent, setNewPostContent] = useState("")
-  const [image, setImage] = useState<File>()
+  const [image, setImage] = useState<File | null>(null)
 
   const history = useHistory()
 
@@ -27,15 +27,11 @@ export const NewPost: VFC = memo(() => {
     return formData
   }
 
-  const sendFormData = async () => {
+  const sendFormData = () => {
     const url = 'http://localhost:3001/posts'
-    const data = await createFormData()
-    console.log(data)
+    const data = createFormData()
     axios.post(url, data)
-    .then(res => {
-      console.log(res.data)
-      history.push('/')
-    })
+    .then(() => history.push('/'))
     .catch(e => {
       console.error(e)
     })
