@@ -65,7 +65,7 @@ export const PostCard: VFC<Props> = memo((props) => {
         <Flex justifyContent="center">
           <Box mr={6}>
             <Button onClick={editPost} bg="teal" color="white">Edit</Button>
-            <EditPostModal isOpen={isOpen} onClose={onClose} postTitle={postTitle} postContent={postContent} postCreatedAt={postCreatedAt} id={id} getAllPosts={getAllPosts}  />
+            <EditPostModal isOpen={isOpen} onClose={onClose} postTitle={postTitle} postContent={postContent} postCreatedAt={postCreatedAt} id={id} getAllPosts={getAllPosts} imageUrl={imageUrl} />
           </Box>
           <Box>
             <Button onClick={() => deletePost(id)} bg="red" color="white">Delete</Button>
