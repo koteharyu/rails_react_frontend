@@ -1,4 +1,4 @@
-import { memo, useEffect, useState, VFC } from "react";
+import { memo, useCallback, useEffect, useState, VFC } from "react";
 import axios from 'axios'
 import { PostCard } from "./PostCard";
 import { Heading, Box, Wrap, WrapItem } from '@chakra-ui/react'
@@ -17,13 +17,13 @@ export const AllPosts: VFC = memo(() => {
 
   const [posts, setPosts] = useState<Array<Post> | null>(null)
 
-  const getAllPosts = () => {
+  const getAllPosts = useCallback(() => {
     axios.get('http://localhost:3001/posts')
       .then(res => {
         setPosts(res.data)
       })
       .catch((e) => console.error(e))
-  }
+  },[])
 
   useEffect(() => {
     getAllPosts()

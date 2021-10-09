@@ -1,6 +1,7 @@
 import { memo, VFC } from "react";
-import { Box, Image, Badge, Button, Flex } from '@chakra-ui/react'
+import { Box, Image, Badge, Button, Flex, useDisclosure } from '@chakra-ui/react'
 import axios from 'axios'
+import { EditPostModal } from "./EditPostModal";
 
 type Props = {
   postTitle: string
@@ -15,15 +16,15 @@ export const PostCard: VFC<Props> = memo((props) => {
 
   const { postTitle, postContent, postCreatedAt, id, imageUrl, getAllPosts } = props
 
-  const editPost = () => {
-    alert("edit post")
-  }
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const editPost = () => onOpen()
 
   const deletePost = (id: number) => {
     const sure = window.confirm("are you sure?")
     if (sure) {
       axios.delete(`http://localhost:3001/posts/${id}`)
-      .then( () => {
+      .then(() => {
         getAllPosts()
       })
       .catch(e => console.error(e))
@@ -64,6 +65,7 @@ export const PostCard: VFC<Props> = memo((props) => {
         <Flex justifyContent="center">
           <Box mr={6}>
             <Button onClick={editPost} bg="teal" color="white">Edit</Button>
+            <EditPostModal isOpen={isOpen} onClose={onClose} postTitle={postTitle} postContent={postContent} postCreatedAt={postCreatedAt} id={id} getAllPosts={getAllPosts}  />
           </Box>
           <Box>
             <Button onClick={() => deletePost(id)} bg="red" color="white">Delete</Button>
