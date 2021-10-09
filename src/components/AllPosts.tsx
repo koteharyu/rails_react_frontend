@@ -8,7 +8,9 @@ type Post = {
   title: string
   content: string
   created_at: string
-  image_url: string
+  image: {
+    url: string
+  }
 }
 
 export const AllPosts: VFC = memo(() => {
@@ -35,7 +37,7 @@ export const AllPosts: VFC = memo(() => {
       <Wrap p={{ base: 4, md: 10}}>
         {posts?.map((post) => (
           <WrapItem key={post.id}>
-            <PostCard id={post.id} postTitle={post.title} postContent={post.content} postCreatedAt={post.created_at} getAllPosts={getAllPosts} imageUrl={post.image_url} />
+            <PostCard id={post.id} postTitle={post.title} postContent={post.content} postCreatedAt={post.created_at} imageUrl={post.image.url} getAllPosts={getAllPosts} />
           </WrapItem>
         ))}
       </Wrap>
