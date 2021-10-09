@@ -13,7 +13,7 @@ type Props = {
 
 export const PostCard: VFC<Props> = memo((props) => {
 
-  const { postTitle, postContent, postCreatedAt, id, imageUrl,  getAllPosts } = props
+  const { postTitle, postContent, postCreatedAt, id, imageUrl, getAllPosts } = props
 
   const editPost = () => {
     alert("edit post")
@@ -32,7 +32,7 @@ export const PostCard: VFC<Props> = memo((props) => {
 
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
-      <Image src={imageUrl} alt="dummt image" />
+      <Image style={{ width: "100%", height: "160px"}} src={imageUrl} alt="dummt image" />
 
       <Box p="6">
         <Box display="flex" alignItems="baseline">
