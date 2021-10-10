@@ -8,6 +8,8 @@ export const Header: VFC = memo(() => {
   const goToTop = () => history.push("/")
   const goToPostsIndex = () => history.push("/")
   const goToPostsNew = () => history.push("/posts/new")
+  const goToAllWeights = () => history.push("/bodies")
+  const goToNewWeight = () => history.push('/bodies/new')
 
   return (
     <>
@@ -21,6 +23,12 @@ export const Header: VFC = memo(() => {
           </Box>
           <Box mx={10}>
             <Link _hover={{ cursor: "pointer " }} onClick={goToPostsNew}>New Post</Link>
+          </Box>
+          <Box mx={10}>
+            <Link _hover={{ cursor: "pointer " }} onClick={goToAllWeights}>All Weights</Link>
+          </Box>
+          <Box mx={10}>
+            <Link _hover={{ cursor: "pointer " }} onClick={goToNewWeight}>New Weight</Link>
           </Box>
         </Flex>
       </Flex>
