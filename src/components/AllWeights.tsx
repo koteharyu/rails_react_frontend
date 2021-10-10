@@ -1,7 +1,7 @@
 import { memo, useEffect, useState, VFC } from "react";
 // import { Line } from 'react-chartjs-2';
 import axios from "axios";
-import { Wrap, WrapItem, Button  } from '@chakra-ui/react'
+import { Wrap, WrapItem  } from '@chakra-ui/react'
 import { BodyCard } from "./BodyCard";
 
 type Response = {
