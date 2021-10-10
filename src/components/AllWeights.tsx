@@ -1,4 +1,4 @@
-import { useEffect, useState, VFC } from "react";
+import { memo, useEffect, useState, VFC } from "react";
 // import { Line } from 'react-chartjs-2';
 import axios from "axios";
 import { Wrap, WrapItem, Button  } from '@chakra-ui/react'
@@ -24,7 +24,7 @@ type CreatedAt = {
   created_at: string
 }
 
-export const AllWeights: VFC = () => {
+export const AllWeights: VFC = memo(() => {
 
   // const [response, setResponse] = useState<Response>()
   // const [lineData, setLineData] = useState({})
@@ -57,4 +57,4 @@ export const AllWeights: VFC = () => {
       </Wrap>
     </>
   )
-}
+})
